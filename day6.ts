@@ -41,3 +41,15 @@ while (d <= actual.distance) {
   i++;
 }
 console.log(actual.time - 2 * (i - 1) + 1);
+
+const time = 50748685;
+const distance = 242101716911252;
+
+const a = -1;
+const b = time;
+const c = -distance + 1;
+const sqrt = Math.sqrt(b * b - 4 * a * c);
+const x1 = (-b + sqrt) / (2 * a);
+const x2 = (-b - sqrt) / (2 * a);
+
+console.log(Math.floor(x2) - Math.ceil(x1) + 1);
