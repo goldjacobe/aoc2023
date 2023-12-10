@@ -25,8 +25,8 @@ const dirs = {
 const aroundPoint = (yPos: number, xPos: number) => [
   ...(yPos > 0 ? [{ y: yPos - 1, x: xPos, d: 'S' }] : []),
   ...(xPos > 0 ? [{ y: yPos, x: xPos - 1, d: 'E' }] : []),
-  ...(xPos < lines.length - 1 ? [{ y: yPos, x: xPos + 1, d: 'W' }] : []),
-  ...(yPos < lines[0].length - 1 ? [{ y: yPos + 1, x: xPos, d: 'N' }] : []),
+  ...(xPos < lines[0].length - 1 ? [{ y: yPos, x: xPos + 1, d: 'W' }] : []),
+  ...(yPos < lines.length - 1 ? [{ y: yPos + 1, x: xPos, d: 'N' }] : []),
 ];
 
 const aroundS = aroundPoint(sPos[0], sPos[1]);
