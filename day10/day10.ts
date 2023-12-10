@@ -86,17 +86,25 @@ seen.add(`${cur.y},${cur.x}`);
 
 console.log(seen.size / 2);
 
+const sReplacementDirs = [a.d, b.d].map((d) => oppositeDir(d));
+const sReplacement = Object.entries(dirs).find(
+  ([_, v]) =>
+    (v[0] === sReplacementDirs[0] && v[1] === sReplacementDirs[1]) ||
+    (v[0] === sReplacementDirs[1] && v[1] === sReplacementDirs[0])
+)![0];
+
 let count = 0;
 for (const [i, line] of lines.entries()) {
   let state = {
     last: undefined as 'L' | 'F' | undefined,
     inside: false,
   };
-  for (const [j, c] of line.entries()) {
+  for (const [j, cPre] of line.entries()) {
     if (seen.has(`${i},${j}`)) {
+      const c = cPre !== 'S' ? cPre : sReplacement;
       switch (c) {
         case '|':
-        case 'S': //HACK only works for given input
+          // case 'S': //HACK only works for given input
           if (state.last) {
             throw new Error('bad');
           }
