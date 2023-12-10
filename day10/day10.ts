@@ -67,7 +67,7 @@ while (cur.x !== b.x || cur.y !== b.y) {
   const nextDir = dirs[lines[cur.y][cur.x] as keyof typeof dirs].find(
     (d) => d !== cur.d
   )!;
-  const around = aroundPoint(cur.y, cur.x)
+  const next = aroundPoint(cur.y, cur.x)
     .filter(({ y, x }) => !seen.has(`${y},${x}`))
     .filter(({ y, x, d }) => {
       return (
@@ -77,7 +77,6 @@ while (cur.x !== b.x || cur.y !== b.y) {
       );
     });
 
-  const next = around;
   if (next.length !== 1) {
     throw new Error('bad');
   }
