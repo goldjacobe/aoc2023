@@ -91,7 +91,6 @@ function part2(line: string) {
       times: 1,
     },
   ];
-  let start = 0;
   let sum = 0;
   while (toCheck.length > 0) {
     let newToCheck = [];
