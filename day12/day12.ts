@@ -91,6 +91,7 @@ function part2(line: string) {
       times: 1,
     },
   ];
+  let start = 0;
   let sum = 0;
   while (toCheck.length > 0) {
     let newToCheck = [];
@@ -125,12 +126,12 @@ function part2(line: string) {
         continue;
       }
       if (k === thingsArr.length) {
-        if (possibility.remainingNums.length === 0) {
+        if (
+          possibility.remainingNums.length === 0 ||
+          (possibility.remainingNums.length === 1 &&
+            possibility.remainingNums[0] === possibility.seenBroken)
+        ) {
           sum += possibility.times;
-        } else if (possibility.remainingNums.length === 1) {
-          if (possibility.remainingNums[0] === possibility.seenBroken) {
-            sum += possibility.times;
-          }
         }
         continue;
       }
